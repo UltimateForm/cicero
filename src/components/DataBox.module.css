@@ -1,0 +1,13 @@
+.dataBoxImageGradient {
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+	background: linear-gradient(
+		90deg,
+		#1f2937 0%,
+		rgba(11, 15, 20, 0.71) 51.97%,
+		rgba(0, 0, 0, 0) 97.82%
+	);
+}
