@@ -26,13 +26,11 @@ export function DataBox(props: IDataBoxProps) {
 			});
 			return "transition-none translate-x-full";
 		});
-		console.log("Hello");
 	}, [id]);
 
 	React.useEffect(() => {
 		if (title && transition === "transition-none translate-x-full")
 			setTransition("transition-transform translate-x-0");
-		console.log("World");
 	}, [transition, id]);
 
 	return (
@@ -72,12 +70,9 @@ export function DataBoxController() {
 	const { data, error, isLoading } = useGetTermDataQuery(selectedWord, {
 		skip: selectedWord === undefined || selectedWord === "",
 	});
-	console.log("Selected", selectedWord);
 	if (!data || error || isLoading) {
-		console.log("error", error);
 		return <></>;
 	}
-	console.log(`selected:${selectedWord}; data:`, data);
 	return (
 		<DataBox
 			id={data.pageid}
