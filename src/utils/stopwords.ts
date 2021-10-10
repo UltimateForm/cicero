@@ -1,5 +1,5 @@
-// source: https://github.com/amueller/word_cloud/edit/master/wordcloud/stopwords
-export default [
+// Source: https://github.com/amueller/word_cloud/edit/master/wordcloud/stopwords
+const stopWords = [
 	"a",
 	"about",
 	"above",
@@ -193,4 +193,6 @@ export default [
 	"yourself",
 	"yourselves",
 	""
-]
+];
+
+export default stopWords;

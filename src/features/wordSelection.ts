@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IWordSelectionState {
-	value: string
+	value: string;
 }
 
-const initialState = {value:""} as IWordSelectionState;
+const initialState: IWordSelectionState = { value: "" };
 
 export const wordSelectionSlice = createSlice({
 	name: "selectedWord",
-	initialState: initialState,
+	initialState,
 	reducers: {
 		select: (state, action: PayloadAction<string>) => {
 			state.value = action.payload;
@@ -17,7 +17,7 @@ export const wordSelectionSlice = createSlice({
 			state.value = "";
 		}
 	}
-})
+});
 
-export const {select, deselect} = wordSelectionSlice.actions;
+export const { select, deselect } = wordSelectionSlice.actions;
 export default wordSelectionSlice.reducer;

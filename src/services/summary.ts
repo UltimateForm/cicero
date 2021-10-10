@@ -3,7 +3,7 @@ import type { TermData } from "types";
 
 export const summaryApi = createApi({
 	reducerPath: "summaryApi",
-	baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API as string }),
+	baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API }),
 	endpoints: (builder) => ({
 		getTermData: builder.query<TermData, string>({
 			query: (term) => {
@@ -12,6 +12,6 @@ export const summaryApi = createApi({
 			keepUnusedDataFor: 3600
 		})
 	})
-})
+});
 
 export const { useGetTermDataQuery } = summaryApi;

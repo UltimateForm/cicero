@@ -4,7 +4,7 @@ const images: { [key in keyof MetaType]: string } = {
 	date: "images/calendar.png",
 	mood: "images/brain.png",
 	inner: "images/inner.png",
-	outer: "images/outer.png",
+	outer: "images/outer.png"
 };
 
 export function Meta(props: MetaType) {
@@ -41,5 +41,12 @@ export function Meta(props: MetaType) {
 }
 
 export function MetaController() {
-	return <Meta date="Somewhere in last year" mood="Reminiscing about things" inner="At peace" outer="Apathetic perhaps"/>;
+	return (
+		<Meta
+			date="Somewhere in last year"
+			mood="Reminiscing about things"
+			inner="At peace"
+			outer="Apathetic perhaps"
+		/>
+	);
 }

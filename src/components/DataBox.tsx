@@ -1,8 +1,8 @@
 import { useStoreSelector } from "hooks/store";
 import React from "react";
-import styles from "./DataBox.module.css";
 import classnames from "classnames";
 import { useGetTermDataQuery } from "services/summary";
+import styles from "./DataBox.module.css";
 
 interface IDataBoxProps {
 	title: string;
@@ -22,7 +22,7 @@ export function DataBox(props: IDataBoxProps) {
 			setViewData({
 				title,
 				summary,
-				image,
+				image
 			});
 			console.log("hello? whats wrong");
 			return "transition-none translate-x-full";
@@ -71,11 +71,12 @@ export function DataBox(props: IDataBoxProps) {
 export function DataBoxController() {
 	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
 	const { data, error, isLoading } = useGetTermDataQuery(selectedWord, {
-		skip: selectedWord === undefined || selectedWord === "",
+		skip: selectedWord === undefined || selectedWord === ""
 	});
 	if (!data || error || isLoading) {
-		return <></>;
+		return null;
 	}
+
 	return (
 		<DataBox
 			id={data.pageid}

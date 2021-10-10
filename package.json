@@ -33,6 +33,24 @@
 	},
 	"xo": {
 		"extends": "xo-react",
-    "prettier": true
-  }
+		"prettier": true,
+		"rules": {
+			"react/function-component-definition": "off",
+			"react/react-in-jsx-scope": "off",
+			"node/prefer-global/process": "off",
+			"unicorn/filename-case": "off",
+			"@typescript-eslint/naming-convention": "off",
+			"@typescript-eslint/no-unsafe-assignment": "off",
+			"@typescript-eslint/no-unsafe-call": "off",
+			"react/no-array-index-key": "warn",
+			"@typescript-eslint/no-implicit-any-catch": "warn",
+			"prefer-promise-reject-errors": "warn",
+      "prefer-regex-literals": "warn"
+		},
+		"ignore": [
+			"postcss.config.js",
+			"tailwind.config.js",
+			"next-env.d.ts"
+		]
+	}
 }

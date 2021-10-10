@@ -27,8 +27,12 @@ export function Word(props: IWordProps) {
 		<>
 			<span
 				className={className}
-				onPointerEnter={() => onHoverEnter()}
-				onPointerLeave={() => onHoverExit()}
+				onPointerEnter={() => {
+					onHoverEnter();
+				}}
+				onPointerLeave={() => {
+					onHoverExit();
+				}}
 			>
 				{word}
 			</span>

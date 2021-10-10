@@ -1,11 +1,11 @@
 export interface TermData {
-	pageid: number,
-	title: string,
-	description: string,
+	pageid: number;
+	title: string;
+	description: string;
 	thumbnail?: {
-		source: string,
-		width: number,
-		height: number
-	},
-	extract: string
+		source: string;
+		width: number;
+		height: number;
+	};
+	extract: string;
 }

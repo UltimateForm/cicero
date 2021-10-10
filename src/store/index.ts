@@ -7,7 +7,8 @@ const store = configureStore({
 		wordSelection,
 		[summaryApi.reducerPath]: summaryApi.reducer
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(summaryApi.middleware)
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat(summaryApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;

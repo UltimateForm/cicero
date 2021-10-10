@@ -1,9 +1,8 @@
-import styles from "./Header.module.css";
 import classnames from "classnames";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export function Header() {
-	const pd = "pt-2 pr-7 pb-20 pl-2";
 	return (
 		<div
 			className={classnames(
