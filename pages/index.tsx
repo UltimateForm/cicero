@@ -30,7 +30,7 @@ export default function Home() {
 	return (
 		<div className="flex justify-between w-full">
 			<TextAssembler text={poem_txt} />
-			<div className="divider h-3/5 bg-riverBed w-px absolute right-1/2" />
+			<div className="divider h-3/5 bg-riverBed w-px absolute left-1/2" />
 			<DataBoxController />
 			<MetaController />
 			{process.browser && selectedWord && (

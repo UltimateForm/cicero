@@ -9,6 +9,7 @@ export const summaryApi = createApi({
 			query: (term) => {
 				return `summary/${term.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ")}`;
 			},
+			keepUnusedDataFor: 3600
 		})
 	})
 })

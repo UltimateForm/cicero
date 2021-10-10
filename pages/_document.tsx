@@ -27,7 +27,7 @@ class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 				</Head>
-				<body className="min-h-screen text-2xl font-sen">
+				<body className="min-h-screen text-2xl font-sen overflow-hidden">
 					<Main />
 					<NextScript />
 				</body>

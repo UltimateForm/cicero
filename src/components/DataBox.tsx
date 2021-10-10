@@ -24,13 +24,16 @@ export function DataBox(props: IDataBoxProps) {
 				summary,
 				image,
 			});
+			console.log("hello? whats wrong");
 			return "transition-none translate-x-full";
 		});
 	}, [id]);
 
 	React.useEffect(() => {
-		if (title && transition === "transition-none translate-x-full")
-			setTransition("transition-transform translate-x-0");
+		setTimeout(() => {
+			if (title && transition === "transition-none translate-x-full")
+				setTransition("transition-transform translate-x-0");
+		}, 100);
 	}, [transition, id]);
 
 	return (
@@ -76,7 +79,7 @@ export function DataBoxController() {
 	return (
 		<DataBox
 			id={data.pageid}
-			title={data.description || selectedWord}
+			title={data.description || data.title || selectedWord}
 			summary={data.extract}
 			image={data.thumbnail?.source}
 		/>
