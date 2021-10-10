@@ -16,11 +16,11 @@ export function Word(props: IWordProps) {
 		[word]
 	);
 	function onHoverEnter() {
-		dispatch(select(word));
+		if (!stopwords.includes(word)) dispatch(select(word));
 	}
 
 	function onHoverExit() {
-		dispatch(deselect());
+		if (!stopwords.includes(word)) dispatch(deselect());
 	}
 
 	return (

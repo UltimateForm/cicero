@@ -6,8 +6,11 @@ module.exports = {
   darkMode: true, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      "sen": ["Sen", "sans-serif"]
+    },
     colors: {
-      ebonyClay:"#1f2937",
+      ebonyClay: "#1f2937",
       riverBed: "#4c5666",
       pattensBlue: "#dbf2ff",
       goldenGrass: "#dea01e",

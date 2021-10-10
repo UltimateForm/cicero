@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { splitByLine, splitByWord } from "utils/text";
-import { IWordProps } from "./Word";
+import { IWordProps, Word } from "./Word";
+import classnames from "classnames";
+import { useStoreSelector } from "hooks/store";
 
 interface ITextAssemblerProps {
 	text: string;
-	renderWord: React.FunctionComponent<IWordProps>;
 }
 export function TextAssembler(props: ITextAssemblerProps) {
-	const { text, renderWord } = props;
+	const { text } = props;
+	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
 	const mappedLines = React.useMemo(() => {
 		const lines = splitByLine(text).map((line) => {
 			const words = splitByWord(line);
@@ -16,16 +18,26 @@ export function TextAssembler(props: ITextAssemblerProps) {
 		return lines;
 	}, [text]);
 	return (
-		<div>
+		<div key="isithis">
 			{mappedLines.map((line, index) => (
-				<>
-					<span className="pr-2 hover:border-r-2 hover:border-b-transparent hover:border-t-transparent hover:border-l-transparent hover:border-r-riverBed">
-						{line.map((word, w_index) =>
-							renderWord({ word, addspace: w_index !== line.length })
+				<Fragment key={`frag-${index}`}>
+					<span
+						className={classnames(
+							line.includes(selectedWord) ? "selectedWord" : "",
+							"A pr-2 hover:border-r-2 hover:border-b-transparent hover:border-t-transparent hover:border-l-transparent hover:border-r-riverBed"
 						)}
+						key={index}
+					>
+						{line.map((word, w_index) => (
+							<Word
+								word={word}
+								addspace={w_index !== line.length}
+								key={`word-${w_index}`}
+							/>
+						))}
 					</span>
-					{index != mappedLines.length && <br />}
-				</>
+					{index != mappedLines.length && <br key={`br-${index}`} />}
+				</Fragment>
 			))}
 		</div>
 	);
