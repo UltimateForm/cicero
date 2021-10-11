@@ -2,14 +2,18 @@ import React, { Fragment } from "react";
 import { splitByLine, splitByWord } from "utils/text";
 import classnames from "classnames";
 import { useStoreSelector } from "hooks/store";
-import { Word } from "./Word";
+import { WordController } from "./Word";
 
-interface ITextAssemblerProps {
+interface ITextAssemblerProps extends ITextAssemblerControllerProps {
+	selectedWord: string;
+}
+
+interface ITextAssemblerControllerProps {
 	text: string;
 }
+
 export function TextAssembler(props: ITextAssemblerProps) {
-	const { text } = props;
-	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
+	const { text, selectedWord } = props;
 	const mappedLines = React.useMemo(() => {
 		const lines = splitByLine(text).map((line) => {
 			const words = splitByWord(line);
@@ -25,11 +29,11 @@ export function TextAssembler(props: ITextAssemblerProps) {
 						key={index}
 						className={classnames(
 							line.includes(selectedWord) ? "selectedWord" : "",
-							"A pr-2 hover:border-r-2 hover:border-b-transparent hover:border-t-transparent hover:border-l-transparent hover:border-r-riverBed"
+							"pr-2 hover:border-r-2 hover:border-b-transparent hover:border-t-transparent hover:border-l-transparent hover:border-r-riverBed"
 						)}
 					>
 						{line.map((word, w_index) => (
-							<Word
+							<WordController
 								key={`word-${w_index}`}
 								word={word}
 								addspace={w_index !== line.length}
@@ -41,4 +45,9 @@ export function TextAssembler(props: ITextAssemblerProps) {
 			))}
 		</div>
 	);
+}
+
+export function TextAssemblerController(props: ITextAssemblerControllerProps) {
+	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
+	return <TextAssembler {...props} selectedWord={selectedWord} />;
 }

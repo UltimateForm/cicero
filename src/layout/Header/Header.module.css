@@ -2,3 +2,9 @@
 	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.25);
 	padding: 10px 30px 10px 90px;
 }
+
+.currentRoute {
+	text-decoration: underline;
+	text-decoration-color: #dea01e;
+	text-decoration-style: dotted;
+}

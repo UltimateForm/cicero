@@ -1,8 +1,13 @@
 import classnames from "classnames";
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import styles from "./Header.module.css";
 
+// @TODO: map routes
 export function Header() {
+	const router = useRouter();
+	const pathName = router.pathname;
+	console.log(pathName);
 	return (
 		<div
 			className={classnames(
@@ -11,16 +16,44 @@ export function Header() {
 			)}
 		>
 			<Link href="/">
-				<a className="even:ml-12 even:mr-12">Home</a>
+				<a
+					className={classnames(
+						pathName === "/" ? styles.currentRoute : "",
+						"even:ml-12 even:mr-12"
+					)}
+				>
+					Home
+				</a>
 			</Link>
 			<Link href="/about">
-				<a className="even:ml-12 even:mr-12">About</a>
+				<a
+					className={classnames(
+						pathName === "/about" ? styles.currentRoute : "",
+						"even:ml-12 even:mr-12"
+					)}
+				>
+					About
+				</a>
 			</Link>
 			<Link href="/search">
-				<a className="even:ml-12 even:mr-12">Search</a>
+				<a
+					className={classnames(
+						pathName === "/search" ? styles.currentRoute : "",
+						"even:ml-12 even:mr-12"
+					)}
+				>
+					Search
+				</a>
 			</Link>
 			<Link href="/all">
-				<a className="even:ml-12 even:mr-12">All</a>
+				<a
+					className={classnames(
+						pathName === "/all" ? styles.currentRoute : "",
+						"even:ml-12 even:mr-12"
+					)}
+				>
+					All
+				</a>
 			</Link>
 		</div>
 	);

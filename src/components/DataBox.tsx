@@ -24,7 +24,6 @@ export function DataBox(props: IDataBoxProps) {
 				summary,
 				image
 			});
-			console.log("hello? whats wrong");
 			return "transition-none translate-x-full";
 		});
 	}, [id]);
