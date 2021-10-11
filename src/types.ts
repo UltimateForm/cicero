@@ -8,4 +8,13 @@ export interface TermData {
 		height: number;
 	};
 	extract: string;
+	content_urls: {
+		desktop: {
+			page: string;
+		};
+		mobile: {
+			page: string;
+		};
+	};
+	desambiguationPortal: boolean | string;
 }

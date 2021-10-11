@@ -61,8 +61,10 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
 		return;
 	}
 
-	const ambiguous = summaryData.type === "disambiguation";
-	if (ambiguous) {
+	const desambiguationPortal =
+		summaryData.type === "disambiguation" &&
+		summaryData.content_urls.desktop.page;
+	if (desambiguationPortal) {
 		try {
 			summaryData = await desambiguate(termKey as string);
 		} catch (error) {
@@ -77,9 +79,10 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
 			"description",
 			"thumbnail",
 			"extract",
-			"pageid"
+			"pageid",
+			"content_urls"
 		]),
-		ambiguous
+		desambiguationPortal
 	});
 }
 

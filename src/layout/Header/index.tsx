@@ -7,7 +7,6 @@ import styles from "./Header.module.css";
 export function Header() {
 	const router = useRouter();
 	const pathName = router.pathname;
-	console.log(pathName);
 	return (
 		<div
 			className={classnames(
