@@ -4,9 +4,10 @@ import classnames from "classnames";
 import { useGetTermDataQuery } from "services/summary";
 import { Button } from "components/Button";
 import { TermData } from "types";
-import styles from "./DataBox.module.css";
+import { WikipediaLoading } from "components/WikiepediaLoader/WikipediaLoader";
+import styles from "./Summary.module.css";
 
-interface IDataBoxProps {
+interface ISummaryProps {
 	title: string;
 	summary: string;
 	image: string;
@@ -15,12 +16,12 @@ interface IDataBoxProps {
 	content_urls: TermData["content_urls"];
 }
 
-export function DataBox(props: IDataBoxProps) {
+export function Summary(props: ISummaryProps) {
 	const { title, summary, image, id, content_urls, desambiguationPortal } =
 		props;
 	const [transition, setTransition] = React.useState("");
 	const [viewData, setViewData] = React.useState<
-		Partial<Pick<IDataBoxProps, "title" | "summary" | "image">>
+		Partial<Pick<ISummaryProps, "title" | "summary" | "image">>
 	>({});
 	React.useEffect(() => {
 		setTransition((_) => {
@@ -63,7 +64,7 @@ export function DataBox(props: IDataBoxProps) {
 						minHeight: "25vh"
 					}}
 				>
-					<div className={styles.dataBoxImageGradient} />
+					<div className={styles.summaryImageGradient} />
 				</div>
 				<div className="flex p-1 place-items-center relative w-2/3 h-full">
 					{viewData.summary}
@@ -85,17 +86,25 @@ export function DataBox(props: IDataBoxProps) {
 	);
 }
 
-export function DataBoxController() {
+export function SummaryController() {
 	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
-	const { data, error, isLoading } = useGetTermDataQuery(selectedWord, {
-		skip: selectedWord === undefined || selectedWord === ""
-	});
-	if (!data || error || isLoading) {
+	const { data, error, isLoading, isFetching } = useGetTermDataQuery(
+		selectedWord,
+		{
+			skip: selectedWord === undefined || selectedWord === ""
+		}
+	);
+
+	if (isFetching || isLoading) {
+		return <WikipediaLoading />;
+	}
+
+	if (!data || error || !selectedWord) {
 		return null;
 	}
 
 	return (
-		<DataBox
+		<Summary
 			id={data.pageid}
 			title={data.description || data.title || selectedWord}
 			summary={data.extract}

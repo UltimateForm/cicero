@@ -29,8 +29,11 @@ async function desambiguate(termKey: string) {
 	}
 
 	const desambiguationData = await wikipediaSectionsData.json();
-	const regeExp = /(?<=title=\\")(.*?)(?=\\">)/;
-	const regexExpMatcher = new RegExp('(?<=title=\\")(.*?)(?=\\">)', "m");
+	const regeExp = /(?<=title=\\")(?!wikt:)(.*?)(?=\\">)/;
+	const regexExpMatcher = new RegExp(
+		'(?<=title=\\")(?!wikt:)(.*?)(?=\\">)',
+		"m"
+	);
 	const matches = regexExpMatcher.exec(desambiguationData.segmentedContent);
 	// Es
 	console.log(

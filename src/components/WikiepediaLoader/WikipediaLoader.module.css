@@ -1,0 +1,28 @@
+.container {
+  background: linear-gradient(270deg, #dea01e, #ffa754, #ffb184, #ffc1b4);
+  background-size: 800% 800%;
+  -webkit-animation: wikiPulse 1s ease-in-out infinite;
+  -moz-animation: wikiPulse 1s ease-in-out infinite;
+  animation: wikiPulse 1s ease-in-out infinite;
+  width: 15rem;
+  height: 15rem;
+  position:absolute;
+  right:10%;
+  place-self: center;
+}
+
+@-webkit-keyframes wikiPulse {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes wikiPulse {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes wikiPulse {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
