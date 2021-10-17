@@ -44,14 +44,14 @@ export function Header() {
 					Search
 				</a>
 			</Link>
-			<Link href="/all">
+			<Link href="/library">
 				<a
 					className={classnames(
-						pathName === "/all" ? styles.currentRoute : "",
+						pathName === "/library" ? styles.currentRoute : "",
 						"even:ml-12 even:mr-12"
 					)}
 				>
-					All
+					Library
 				</a>
 			</Link>
 		</div>

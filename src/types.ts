@@ -18,3 +18,9 @@ export interface TermData {
 	};
 	desambiguationPortal: boolean | string;
 }
+
+export interface Poem {
+	date:string;
+	title:string;
+	body:string;
+}

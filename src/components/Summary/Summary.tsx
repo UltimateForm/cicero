@@ -42,7 +42,7 @@ export function Summary(props: ISummaryProps) {
 	}, [transition, id]);
 
 	return (
-		<div className="flex flex-col items-end absolute right-0 self-baseline w-2/5 place-content-between">
+		<div className="flex flex-col items-end absolute right-0 top-1/4 self-baseline w-2/5 place-content-between">
 			<span
 				className={classnames(
 					transition,

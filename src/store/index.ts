@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import wordSelection from "features/wordSelection";
+import library from "features/library";
 import { summaryApi } from "services/summary";
 
 const store = configureStore({
 	reducer: {
 		wordSelection,
+		library,
 		[summaryApi.reducerPath]: summaryApi.reducer
 	},
 	middleware: (getDefaultMiddleware) =>

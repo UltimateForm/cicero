@@ -45,7 +45,7 @@
 			"react/no-array-index-key": "warn",
 			"@typescript-eslint/no-implicit-any-catch": "warn",
 			"prefer-promise-reject-errors": "warn",
-      "prefer-regex-literals": "warn"
+			"prefer-regex-literals": "warn"
 		},
 		"ignore": [
 			"postcss.config.js",
