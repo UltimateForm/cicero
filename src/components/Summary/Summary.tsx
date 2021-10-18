@@ -42,19 +42,25 @@ export function Summary(props: ISummaryProps) {
 	}, [transition, id]);
 
 	return (
-		<div className="flex flex-col items-end absolute right-0 top-1/4 self-baseline w-2/5 place-content-between">
+		<div
+			className={classnames(
+				styles.root,
+				"flex flex-col items-end absolute right-0 self-end w-2/5 content-start"
+			)}
+		>
 			<span
 				className={classnames(
 					transition,
-					"ease-in-out duration-200 transform mr-2 self-start"
+					"ease-in-out duration-200 transform mr-2 self-start content-start"
 				)}
 			>
 				{viewData.title}
 			</span>
 			<div
 				className={classnames(
+					styles.summary,
 					transition,
-					"ease-in-out duration-300 ml-10 mt-10 h-full relative"
+					"ease-in-out duration-300 ml-10 mt-10 relative"
 				)}
 			>
 				<div
@@ -66,8 +72,8 @@ export function Summary(props: ISummaryProps) {
 				>
 					<div className={styles.summaryImageGradient} />
 				</div>
-				<div className="flex p-1 place-items-center relative w-2/3 h-full">
-					{viewData.summary}
+				<div className="flex p-1 place-items-start relative w-2/3 pr-2 h-full overflow-y-auto">
+					<div className="place-items-start">{viewData.summary}</div>
 				</div>
 				<div className="absolute right-0 top-0 flex flex-col p-2">
 					{content_urls?.desktop?.page && (

@@ -11,3 +11,11 @@
 		rgba(0, 0, 0, 0) 97.82%
 	);
 }
+
+.root {
+	height: 80%;
+}
+
+.summary {
+	max-height: calc(90% - 2.5rem);
+}

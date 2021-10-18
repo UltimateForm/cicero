@@ -27,8 +27,8 @@ export default function Home() {
 			<PoemLadderController />
 			<div className="bg-riverBed transition-colors ease-in-out duration-200 divider h-3/5 w-px absolute left-1/2 place-self-center" />
 			<SummaryController />
-			<MetaController />
-			{process.browser && selectedWord && (
+			{/* <MetaController /> */}
+			{/* {process.browser && selectedWord && (
 				<DynamicSteppedLineTo
 					key={selectedWord}
 					from="selectedWord"
@@ -38,7 +38,7 @@ export default function Home() {
 					borderColor="#4c5666"
 					delay={0.000_01}
 				/>
-			)}
+			)} */}
 		</div>
 	);
 }

@@ -5,38 +5,43 @@ import styles from "./PoemLadder.module.css";
 import classnames from "classnames";
 import { DOMAttributes } from "react";
 import { deselect } from "features/wordSelection";
-import { Button, IButtonProps } from "components/Button";
 import React from "react";
+import Scrollbars from "react-custom-scrollbars-2";
 
 interface IPoemLadderProps {
 	poems: Poem[];
 	staged: number;
 	onScroll: DOMAttributes<HTMLDivElement>["onScroll"];
-	onClickLoadMore: IButtonProps["onClick"];
+	ladderRef?: React.MutableRefObject<HTMLDivElement>;
 }
 
 export function PoemLadder(props: IPoemLadderProps) {
-	const { poems, staged, onScroll, onClickLoadMore } = props;
+	const { poems, staged, onScroll, ladderRef } = props;
 	return (
-		<div
-			className={classnames(styles.container, "h-screen overflow-y-scroll s")}
-			onScroll={onScroll}
+		<Scrollbars
+			style={{ scrollbarWidth: "thin" }}
+			renderView={(props) => (
+				<div
+					className={classnames(styles.container, "h-screen overflow-y-scroll")}
+					onScroll={onScroll}
+					ref={ladderRef}
+				>
+					{props.children}
+				</div>
+			)}
 		>
 			{poems.map((poem, index) => (
 				<div
 					key={index}
 					className={classnames(
 						styles.poem,
-						"pl-10 min-h-screen flex place-content-center place-items-center"
+						"pl-10 min-h-screen flex  place-items-center"
 					)}
 				>
 					<PoemView {...poem} />
 				</div>
 			))}
-			<Button className={styles.button} onClick={onClickLoadMore}>
-				Load More
-			</Button>
-		</div>
+		</Scrollbars>
 	);
 }
 
@@ -44,19 +49,29 @@ export function PoemLadderController() {
 	const [maxPoems, setMaxPoems] = React.useState(5);
 	const library = useStoreSelector((state) => state.library);
 	const wordSelected = useStoreSelector((state) => state.wordSelection.value);
+	const ladderRef = React.useRef<HTMLDivElement>();
 	const dispatch = useAppDispatch();
 	const onScroll: IPoemLadderProps["onScroll"] = (event) => {
 		if (wordSelected) dispatch(deselect());
+		if (ladderRef.current) {
+			const bottom =
+				ladderRef.current.scrollTop === (ladderRef.current as any).scrollTopMax;
+			console.log(
+				ladderRef.current.scrollTop,
+				(ladderRef.current as any).scrollTopMax
+			);
+			if (bottom) {
+				setMaxPoems((current) => current + 5);
+			}
+		}
 	};
-	const onClickLoadMore: IPoemLadderProps["onClickLoadMore"] = (event) => {
-		setMaxPoems((current) => current + 5);
-	};
+
 	return (
 		<PoemLadder
 			poems={library.value.slice(0, maxPoems)}
 			staged={library.staged}
 			onScroll={onScroll}
-			onClickLoadMore={onClickLoadMore}
+			ladderRef={ladderRef}
 		/>
 	);
 }

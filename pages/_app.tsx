@@ -4,6 +4,8 @@ import "tailwindcss/tailwind.css";
 import { Provider } from "react-redux";
 import store from "store";
 import { LibraryLoader } from "layout/LibraryLoader";
+import "./app.css";
+
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
 	return (
