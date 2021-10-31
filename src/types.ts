@@ -20,7 +20,7 @@ export interface TermData {
 }
 
 export interface Poem {
-	date:string;
-	title:string;
-	body:string;
+	date: string;
+	title: string;
+	body: string;
 }

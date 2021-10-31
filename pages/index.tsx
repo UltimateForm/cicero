@@ -1,6 +1,4 @@
-import { TextAssemblerController } from "components/TextAssembler";
 import { SummaryController } from "components/Summary";
-import { MetaController } from "components/Meta";
 import { SteppedLineToProps } from "react-lineto";
 import dynamic from "next/dynamic";
 import { useStoreSelector } from "hooks/store";
@@ -21,9 +19,9 @@ export default function Home() {
 	if (library.value.length === 0) {
 		return null;
 	}
+
 	return (
 		<div className="flex justify-between w-full">
-			{/* <TextAssemblerController text={library.value[library.staged].body} /> */}
 			<PoemLadderController />
 			<div className="bg-riverBed transition-colors ease-in-out duration-200 divider h-3/5 w-px absolute left-1/2 place-self-center" />
 			<SummaryController />

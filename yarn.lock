@@ -3905,6 +3905,11 @@ react-server-dom-webpack@0.0.0-experimental-3c4c1c470-20211021:
     neo-async "^2.6.1"
     object-assign "^4.1.1"
 
+react-text-assembler@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-text-assembler/-/react-text-assembler-1.0.6.tgz#82cd106a2e1b5f0457e644108b5d7f65692ba126"
+  integrity sha512-NtuARjESxUTuhNxTiCP48aCPSfrLGsDeL/7TeM/mDkTRKVgaKE1FlTWb+1ncPet/kh0x+HMgO4aZemKZUSYuYw==
+
 react@17.0.2, react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

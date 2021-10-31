@@ -1,12 +1,11 @@
 import { useAppDispatch, useStoreSelector } from "hooks/store";
 import { Poem } from "types";
+import classnames from "classnames";
+import React, { DOMAttributes } from "react";
+import { deselect } from "features/wordSelection";
+import Scrollbars from "react-custom-scrollbars-2";
 import { PoemView } from "../PoemView";
 import styles from "./PoemLadder.module.css";
-import classnames from "classnames";
-import { DOMAttributes } from "react";
-import { deselect } from "features/wordSelection";
-import React from "react";
-import Scrollbars from "react-custom-scrollbars-2";
 
 interface IPoemLadderProps {
 	poems: Poem[];
@@ -22,9 +21,9 @@ export function PoemLadder(props: IPoemLadderProps) {
 			style={{ scrollbarWidth: "thin" }}
 			renderView={(props) => (
 				<div
+					ref={ladderRef}
 					className={classnames(styles.container, "h-screen overflow-y-scroll")}
 					onScroll={onScroll}
-					ref={ladderRef}
 				>
 					{props.children}
 				</div>
@@ -70,8 +69,8 @@ export function PoemLadderController() {
 		<PoemLadder
 			poems={library.value.slice(0, maxPoems)}
 			staged={library.staged}
-			onScroll={onScroll}
 			ladderRef={ladderRef}
+			onScroll={onScroll}
 		/>
 	);
 }
