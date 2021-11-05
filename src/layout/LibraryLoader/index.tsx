@@ -5,7 +5,10 @@ import React from "react";
 export function LibraryLoader(props: { children: React.ReactNode }) {
 	const dispatch = useAppDispatch();
 	React.useEffect(() => {
-		dispatch(loadLibrary());
+		(async function () {
+			await dispatch(loadLibrary());
+		})();
 	}, []);
+	// eslint-disable-next-line react/jsx-no-useless-fragment
 	return <>{props.children}</>;
 }

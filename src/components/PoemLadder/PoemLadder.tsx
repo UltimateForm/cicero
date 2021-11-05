@@ -3,7 +3,6 @@ import { Poem } from "types";
 import classnames from "classnames";
 import React, { DOMAttributes } from "react";
 import { deselect } from "features/wordSelection";
-import Scrollbars from "react-custom-scrollbars-2";
 import { PoemView } from "../PoemView";
 import styles from "./PoemLadder.module.css";
 
@@ -15,19 +14,12 @@ interface IPoemLadderProps {
 }
 
 export function PoemLadder(props: IPoemLadderProps) {
-	const { poems, staged, onScroll, ladderRef } = props;
+	const { poems, onScroll, ladderRef } = props;
 	return (
-		<Scrollbars
-			style={{ scrollbarWidth: "thin" }}
-			renderView={(props) => (
-				<div
-					ref={ladderRef}
-					className={classnames(styles.container, "h-screen overflow-y-scroll")}
-					onScroll={onScroll}
-				>
-					{props.children}
-				</div>
-			)}
+		<div
+			ref={ladderRef}
+			className={classnames(styles.container, "h-screen overflow-y-scroll")}
+			onScroll={onScroll}
 		>
 			{poems.map((poem, index) => (
 				<div
@@ -39,8 +31,8 @@ export function PoemLadder(props: IPoemLadderProps) {
 				>
 					<PoemView {...poem} />
 				</div>
-			))}
-		</Scrollbars>
+			))}{" "}
+		</div>
 	);
 }
 
@@ -50,16 +42,14 @@ export function PoemLadderController() {
 	const wordSelected = useStoreSelector((state) => state.wordSelection.value);
 	const ladderRef = React.useRef<HTMLDivElement>();
 	const dispatch = useAppDispatch();
-	const onScroll: IPoemLadderProps["onScroll"] = (event) => {
+	const onScroll: IPoemLadderProps["onScroll"] = (_) => {
 		if (wordSelected) dispatch(deselect());
 		if (ladderRef.current) {
 			const bottom =
-				ladderRef.current.scrollTop === (ladderRef.current as any).scrollTopMax;
-			console.log(
-				ladderRef.current.scrollTop,
-				(ladderRef.current as any).scrollTopMax
-			);
+				ladderRef.current.scrollHeight - ladderRef.current.scrollTop ===
+				ladderRef.current.clientHeight;
 			if (bottom) {
+				console.log("hello??");
 				setMaxPoems((current) => current + 5);
 			}
 		}
