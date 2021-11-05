@@ -1,20 +1,18 @@
 import { SummaryController } from "components/Summary";
-import { SteppedLineToProps } from "react-lineto";
-import dynamic from "next/dynamic";
+// Import { SteppedLineToProps } from "react-lineto";
+// import dynamic from "next/dynamic";
 import { useStoreSelector } from "hooks/store";
 import { PoemLadderController } from "components/PoemLadder/PoemLadder";
 
-const DynamicSteppedLineTo = dynamic<SteppedLineToProps>(
-	async () => import("react-lineto").then((lib) => lib.SteppedLineTo),
-	{
-		ssr: false
-	}
-);
+// Const DynamicSteppedLineTo = dynamic<SteppedLineToProps>(
+// 	async () => import("react-lineto").then((lib) => lib.SteppedLineTo),
+// 	{
+// 		ssr: false
+// 	}
+// );
 
-const poem_txt =
-	"chlorophyll?\ningestion\na jester's defection\nthat deduced a spruce off the tundra\na master's umbrage...\nin a moon he lost northumbria\nthrottling the pedal off his wheel\nparamount, or paranoid, or a stoic paragraph\nin the life of the xenomorph\nwithout a mold\nno outpost\nno outgrow\njust radioactive glow.\n\nautomobile?\nyes, congestion";
 export default function Home() {
-	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
+	// Const selectedWord = useStoreSelector((state) => state.wordSelection.value);
 	const library = useStoreSelector((state) => state.library);
 	if (library.value.length === 0) {
 		return null;

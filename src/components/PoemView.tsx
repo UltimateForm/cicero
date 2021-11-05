@@ -5,6 +5,6 @@ import { AssemblerController } from "./Assembler";
 type IPoemViewProps = Pick<Poem, "body" | "title">;
 
 export function PoemView(props: IPoemViewProps) {
-	const { body, title } = props;
+	const { body } = props;
 	return <AssemblerController text={body} />;
 }

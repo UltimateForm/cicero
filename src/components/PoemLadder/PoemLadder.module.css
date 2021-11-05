@@ -7,7 +7,6 @@
 	direction: rtl;
 	scroll-snap-type: y mandatory;
 	max-width: 50%;
-	scrollbar-width: thin;
 }
 
 .button {
