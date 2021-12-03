@@ -49,7 +49,6 @@ export function PoemLadderController() {
 				ladderRef.current.scrollHeight - ladderRef.current.scrollTop ===
 				ladderRef.current.clientHeight;
 			if (bottom) {
-				console.log("hello??");
 				setMaxPoems((current) => current + 5);
 			}
 		}
