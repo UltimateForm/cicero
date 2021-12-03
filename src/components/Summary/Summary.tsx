@@ -83,7 +83,7 @@ export function Summary(props: ISummaryProps) {
 					)}
 					{desambiguationPortal && (
 						<Button className="mt-2" href={desambiguationPortal as string}>
-							<img src="images/unequal.png" alt="Wikipedia Icon" />
+							<img src="#/images/unequal.png" alt="Wikipedia Icon" />
 						</Button>
 					)}
 				</div>
