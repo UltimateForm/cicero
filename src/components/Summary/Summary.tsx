@@ -78,12 +78,12 @@ export function Summary(props: ISummaryProps) {
 				<div className="absolute right-0 top-0 flex flex-col p-2">
 					{content_urls?.desktop?.page && (
 						<Button href={content_urls.desktop.page}>
-							<img src="images/wikipedia.png" alt="Wikipedia Icon" />
+							<img src="/images/wikipedia.png" alt="Wikipedia Icon" />
 						</Button>
 					)}
 					{desambiguationPortal && (
 						<Button className="mt-2" href={desambiguationPortal as string}>
-							<img src="#/images/unequal.png" alt="Wikipedia Icon" />
+							<img src="/images/unequal.png" alt="Wikipedia Icon" />
 						</Button>
 					)}
 				</div>

@@ -1,1 +1,1 @@
-export { PoemLadderController } from "./PoemLadder";
+export { PoemLadderController, PoemLadder } from "./PoemLadder";

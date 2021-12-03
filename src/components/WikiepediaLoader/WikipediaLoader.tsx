@@ -5,7 +5,7 @@ export function WikipediaLoading() {
 		<div className={styles.container}>
 			<img
 				className={styles.img}
-				src="images/w-alpha.png"
+				src="/images/w-alpha.png"
 				alt="Wikipedia W logo"
 			/>
 		</div>
