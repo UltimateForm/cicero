@@ -11,14 +11,14 @@ export function Header() {
 		<div
 			className={classnames(
 				styles.header,
-				"flex flex-row items-center absolute top-0 right-0 bg-ebonyClay"
+				"flex flex-row items-center fixed top-0 right-0 bg-ebonyClay lg:left-auto left-0"
 			)}
 		>
 			<Link href="/">
 				<a
 					className={classnames(
 						pathName === "/" ? styles.currentRoute : "",
-						"even:ml-12 even:mr-12"
+						"lg:even:ml-12 lg:even:mr-12"
 					)}
 				>
 					Home
@@ -28,7 +28,7 @@ export function Header() {
 				<a
 					className={classnames(
 						pathName === "/about" ? styles.currentRoute : "",
-						"even:ml-12 even:mr-12"
+						"lg:even:ml-12 lg:even:mr-12"
 					)}
 				>
 					About
@@ -38,7 +38,7 @@ export function Header() {
 				<a
 					className={classnames(
 						pathName === "/search" ? styles.currentRoute : "",
-						"even:ml-12 even:mr-12"
+						"lg:even:ml-12 lg:even:mr-12"
 					)}
 				>
 					Search
@@ -48,7 +48,7 @@ export function Header() {
 				<a
 					className={classnames(
 						pathName === "/library" ? styles.currentRoute : "",
-						"even:ml-12 even:mr-12"
+						"lg:even:ml-12 lg:even:mr-12"
 					)}
 				>
 					Library
