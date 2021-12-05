@@ -6,7 +6,19 @@
 .container {
 	direction: rtl;
 	scroll-snap-type: y mandatory;
-	max-width: 50%;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		direction: rtl;
+		scroll-snap-type: y mandatory;
+		max-width: 50%;
+	}
+
+	.poem {
+		direction: ltr;
+		scroll-snap-align: center;
+	}
 }
 
 .button {

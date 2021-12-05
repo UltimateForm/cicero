@@ -3,7 +3,7 @@ import { SummaryController } from "components/Summary";
 // import dynamic from "next/dynamic";
 import { useStoreSelector } from "hooks/store";
 import { PoemLadderController } from "components/PoemLadder/PoemLadder";
-
+import { Divider } from "components/Divider";
 // Const DynamicSteppedLineTo = dynamic<SteppedLineToProps>(
 // 	async () => import("react-lineto").then((lib) => lib.SteppedLineTo),
 // 	{
@@ -19,9 +19,9 @@ export default function Home() {
 	}
 
 	return (
-		<div className="flex justify-between w-full">
+		<div className="flex justify-between w-full flex-col lg:flex-row">
 			<PoemLadderController />
-			<div className="bg-riverBed transition-colors ease-in-out duration-200 divider h-3/5 w-px absolute left-1/2 place-self-center" />
+			<Divider />
 			<SummaryController />
 			{/* <MetaController /> */}
 			{/* {process.browser && selectedWord && (

@@ -4,6 +4,7 @@ import { SummaryController } from "components/Summary";
 import { useAppDispatch, useStoreSelector } from "hooks/store";
 import React from "react";
 import { deselect } from "features/wordSelection";
+import { Divider } from "components/Divider";
 
 export default function Poem() {
 	const router = useRouter();
@@ -38,7 +39,7 @@ export default function Poem() {
 						/* ignore */
 					}}
 				/>
-				<div className="bg-riverBed transition-colors ease-in-out duration-200 divider h-3/5 w-px absolute left-1/2 place-self-center" />
+				<Divider />
 				<SummaryController />
 			</div>
 		);
