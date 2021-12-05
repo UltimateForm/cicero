@@ -1,20 +1,8 @@
-import { useStoreSelector } from "hooks/store";
 import React from "react";
 import classnames from "classnames";
-import { useGetTermDataQuery } from "services/summary";
 import { Button } from "components/Button";
-import { TermData } from "types";
-import { WikipediaLoading } from "components/WikiepediaLoader/WikipediaLoader";
+import type { ISummaryProps } from "./types";
 import styles from "./Summary.module.css";
-
-interface ISummaryProps {
-	title: string;
-	summary: string;
-	image: string;
-	id: number;
-	desambiguationPortal: TermData["desambiguationPortal"];
-	content_urls: TermData["content_urls"];
-}
 
 export function Summary(props: ISummaryProps) {
 	const { title, summary, image, id, content_urls, desambiguationPortal } =
@@ -45,7 +33,7 @@ export function Summary(props: ISummaryProps) {
 		<div
 			className={classnames(
 				styles.root,
-				"flex flex-col items-end absolute right-0 self-end w-2/5 content-start"
+				"flex flex-col items-end fixed right-0 self-end w-2/5 content-start"
 			)}
 		>
 			<span
@@ -89,34 +77,5 @@ export function Summary(props: ISummaryProps) {
 				</div>
 			</div>
 		</div>
-	);
-}
-
-export function SummaryController() {
-	const selectedWord = useStoreSelector((state) => state.wordSelection.value);
-	const { data, error, isLoading, isFetching } = useGetTermDataQuery(
-		selectedWord,
-		{
-			skip: selectedWord === undefined || selectedWord === ""
-		}
-	);
-
-	if (isFetching || isLoading) {
-		return <WikipediaLoading />;
-	}
-
-	if (!data || error || !selectedWord) {
-		return null;
-	}
-
-	return (
-		<Summary
-			id={data.pageid}
-			title={data.description || data.title || selectedWord}
-			summary={data.extract}
-			image={data.thumbnail?.source}
-			desambiguationPortal={data.desambiguationPortal}
-			content_urls={data.content_urls}
-		/>
 	);
 }

@@ -11,18 +11,20 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<Provider store={store}>
 			<style jsx global>{`
-				::-webkit-scrollbar {
-					width: 12px;
-				}
+				@media (min-width: 1024px) {
+					::-webkit-scrollbar {
+						width: 12px;
+					}
 
-				::-webkit-scrollbar-track {
-					-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-					border-radius: 10px;
-				}
+					::-webkit-scrollbar-track {
+						-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+						border-radius: 10px;
+					}
 
-				::-webkit-scrollbar-thumb {
-					border-radius: 10px;
-					background-color: #4c5666;
+					::-webkit-scrollbar-thumb {
+						border-radius: 10px;
+						background-color: #4c5666;
+					}
 				}
 			`}</style>
 			<BackgroudGray>

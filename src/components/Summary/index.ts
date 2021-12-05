@@ -1,1 +1,1 @@
-export { SummaryController } from "./Summary";
+export { SummaryController } from "./SummaryController";

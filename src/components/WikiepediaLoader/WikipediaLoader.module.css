@@ -6,7 +6,7 @@
   animation: wikiPulse 1s ease-in-out infinite;
   width: 15rem;
   height: 15rem;
-  position:absolute;
+  position:fixed;
   right:10%;
   place-self: center;
 }
