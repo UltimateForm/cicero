@@ -31,7 +31,7 @@ export default function Poem() {
 	}, [poem, poem?.title, title]);
 	if (poem?.title) {
 		return (
-			<div className="flex justify-between w-full min-h-full items-center">
+			<div className="flex justify-between w-full min-h-full items-center md">
 				<PoemLadder
 					poems={[poem]}
 					staged={library.staged}

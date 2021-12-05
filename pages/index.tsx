@@ -4,6 +4,7 @@ import { SummaryController } from "components/Summary";
 import { useStoreSelector } from "hooks/store";
 import { PoemLadderController } from "components/PoemLadder/PoemLadder";
 import { Divider } from "components/Divider";
+import useMediaQuery from "hooks/useMediaQuery";
 // Const DynamicSteppedLineTo = dynamic<SteppedLineToProps>(
 // 	async () => import("react-lineto").then((lib) => lib.SteppedLineTo),
 // 	{
@@ -13,6 +14,7 @@ import { Divider } from "components/Divider";
 
 export default function Home() {
 	// Const selectedWord = useStoreSelector((state) => state.wordSelection.value);
+	const isDesktop = useMediaQuery("(min-width: 1024px)");
 	const library = useStoreSelector((state) => state.library);
 	if (library.value.length === 0) {
 		return null;
@@ -22,7 +24,7 @@ export default function Home() {
 		<div className="flex justify-between w-full flex-col lg:flex-row">
 			<PoemLadderController />
 			<Divider />
-			<SummaryController />
+			{isDesktop && <SummaryController />}
 			{/* <MetaController /> */}
 			{/* {process.browser && selectedWord && (
 				<DynamicSteppedLineTo
