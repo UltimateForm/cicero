@@ -6,12 +6,11 @@
 .container {
 	direction: rtl;
 	scroll-snap-type: y mandatory;
+	height: calc(100vh - 3.5rem);
 }
 
 @media (min-width: 1024px) {
 	.container {
-		direction: rtl;
-		scroll-snap-type: y mandatory;
 		max-width: 50%;
 	}
 
