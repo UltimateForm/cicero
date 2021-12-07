@@ -18,7 +18,7 @@ export function PoemLadder(props: IPoemLadderProps) {
 	return (
 		<div
 			ref={ladderRef}
-			className={classnames(styles.container, "h-screen overflow-y-scroll")}
+			className={classnames(styles.container, "overflow-y-scroll")}
 			onScroll={onScroll}
 		>
 			{poems.map((poem, index) => (

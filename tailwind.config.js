@@ -9,7 +9,21 @@ module.exports = {
 	],
 	darkMode: true, // Or 'media' or 'class'
 	theme: {
-		extend: {},
+		extend: {
+			height: {
+				"fit-content": "fit-content"
+			},
+			minHeight: {
+				10: "2.5rem",
+				14: "3.5rem"
+			},
+			width: {
+				"fit-content": "fit-content"
+			},
+			boxShadow: {
+				"top-bottom-inner": "inset 0px 11px 8px -10px rgb(0 0 0 / 50%),inset 0px -11px 8px -10px rgb(0 0 0 / 50%)"
+			}
+		},
 		fontFamily: {
 			sen: ["Sen", "sans-serif"]
 		},
