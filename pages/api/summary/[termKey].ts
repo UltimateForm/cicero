@@ -64,29 +64,31 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
 		return;
 	}
 
-	const desambiguationPortal =
-		summaryData.type === "disambiguation" &&
-		summaryData.content_urls.desktop.page;
-	if (desambiguationPortal) {
-		try {
-			summaryData = await desambiguate(termKey as string);
-		} catch (error) {
-			response.status(typeof error === "number" ? error : 500).json({ error });
-			return;
-		}
-	}
+	// TODO: figure out how to handle disambiguation since wikipedia api deprecated our current strategy
+	// const desambiguationPortal =
+	// 	summaryData.type === "disambiguation" &&
+	// 	summaryData.content_urls.desktop.page;
+	// if (desambiguationPortal) {
+	// 	try {
+	// 		summaryData = await desambiguate(termKey as string);
+	// 	} catch (error) {
+	// 		response.status(typeof error === "number" ? error : 500).json({ error });
+	// 		return;
+	// 	}
+	// }
 
-	response.status(200).json({
-		...pick(summaryData, [
-			"title",
-			"description",
-			"thumbnail",
-			"extract",
-			"pageid",
-			"content_urls"
-		]),
-		desambiguationPortal
-	});
+	response
+		.status(200)
+		.json(
+			pick(summaryData, [
+				"title",
+				"description",
+				"thumbnail",
+				"extract",
+				"pageid",
+				"content_urls"
+			])
+		);
 }
 
 export default handler;
